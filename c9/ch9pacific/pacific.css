@@ -4,7 +4,6 @@
 
 body {
   background-color: #90c7e3; /* bgc#fff */
-
   color: #555; /* c#fff */
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; /*ffa*/
 }
@@ -25,8 +24,6 @@ header {
   background-repeat: no-repeat; /* bgr */
   background-size: contain; /*bgz*/
   color: #fff;
-  /* height: 120px;  h60 */
-  /* padding-top: 30px; pt15 */
   padding: 0.5em;
   text-align: center; /* tac */
 }
@@ -139,10 +136,10 @@ footer {
   height: 300px;
 }
 
-/*TABLE STYLES*/
+/*table styles*/
 table {
-  border-bottom: 2px solid #1976d2; /*bdb*/
-  border-collapse: separate; /*configures border area, collapse removes extra space between table and cell border, separate gives space between cells*/
+  border-bottom: 2px solid #1976d2;
+  border-collapse: separate;
 }
 th {
   background-color: #1976d2;
@@ -151,19 +148,18 @@ th {
 td,
 th {
   padding: 0.5em;
-  /* border-bottom: 3px solid #39c; */
+  /* border: 2px solid #39c;  */
 }
 td {
-  text-align: center; /*tac*/
+  text-align: center; /* tac */
 }
 .text {
-  text-align: left;
+  text-align: left; /* ta:l */
 }
 tr:nth-last-of-type(odd) {
-  background-color: #ffcd6f; /*bgc*/
+  background-color: #ffcd6f;
 }
 
-/*configue medium display w media q*/ /*changes display when min is 600 */
 @media (max-width: 600px) {
   header {
     background-image: none;
@@ -173,55 +169,55 @@ tr:nth-last-of-type(odd) {
   #trailhero {
     background-size: auto;
   }
-  /*styles for smartphones devices*/
+  /*for smartphone  */
   #special table {
-    display: block; /*db*/
-    border-bottom: none; /*bd:n*/
+    display: block; /* db */
+    border-bottom: none; /* bd:n */
   }
   #special td,
   #special th {
-    display: block; /*db*/
+    display: block; /* db */
   }
-  /*hide table header elements*/
+  /* hide  header  */
   #special thead {
-    display: none; /*dn*/
+    display: none; /* dn */
+  }
+
+  /*::before element adds labels for each row, adds content with content property, reveals hidden data in html*/
+
+  /*classes are from the table in html*/
+  td.package::before {
+    content: "Package:";
+  }
+  td.description::before {
+    content: "Description:";
+  }
+  td.nights::before {
+    content: "Nights:";
+  }
+  td.cost::before {
+    content: "Cost:";
+  }
+  td.package,
+  td.description,
+  td.nights,
+  td.cost {
+    padding-left: 35%; /* pl35% */
+    position: relative; /* pos:r */
+    text-align: left; /* ta:l */
+    font-size: 4vw; /*RELATIve unit lenght, scale better -> vw=relative to 1%of viewport*/
+  }
+  td::before {
+    position: absolute; /* pos:a */
+    top: 10px; /* t6 */
+    left: 0.5em; /* l.5em */
+    font-weight: bold; /* fwb */
+    color: #1976d2; /* c#1976d2 */
+  }
+  td:last-of-type {
+    border-bottom: 2px solid #1b69b2; /*bb2-solid#1b69b2 */
   }
 }
-/*::before element adds labels for each row, adds content with content property, reveals hidden data in html*/
-td.package::before {
-  /*classes are from the table in html*/
-  content: "Package:";
-}
-td.description::before {
-  content: "Description:";
-}
-td.nights::before {
-  content: "Nights:";
-}
-td.cost::before {
-  content: "Cost:";
-}
-td.package,
-td.description,
-td.nights,
-td.cost {
-  padding-left: 35%; /*pl35%*/
-  position: relative; /*pos:r*/
-  text-align: left; /*ta:l*/
-  font-size: 4vw; /*RELATIve unit lenght, scale better -> vw=relative to 1%of viewport*/
-}
-td::before {
-  /*styles labels*/
-  position: absolute; /*pas:a*/
-  top: 6px; /*t6*/
-  left: 0.5em; /*l.5em*/
-  font-weight: bold; /*fwb*/
-  color: #1976d2; /*c#*/
-}
-td:last-of-type {
-  border-bottom: 2px solid #1b69b2;
-}
-
 @media (min-width: 600px) {
   nav ul {
     display: flex; /*df*/
@@ -230,32 +226,30 @@ td:last-of-type {
     justify-content: space-around;
   }
   nav li {
-    border-bottom: none; /*bdbn*/
+    border-bottom: none; /*bbn */
   }
   .flow {
     display: flex; /*df*/
-    flex-direction: row; /*fdr*/
+    flex-direction: row; /*fdr */
   }
   section {
-    flex: 1; /*configures proportional 3 section layout*/
-    margin-right: 1em; /*mr 1em*/
+    /*configures proportional 3 section layout*/
+    flex: 1; /* flex1 */
+    margin-right: 1em;
   }
-
-  /*flexbox codes specific area of website, use nav as flex container, inside are flex items*/
 }
 
 @media (min-width: 1024px) {
   #wrapper {
-    margin: auto; /*m:a*/
+    margin: auto; /* m:a */
     width: 80%;
-    border: 1px solid #002171; /*bd1-solid-*/
+    border: 1px solid #002171; /* bd1-solid-#002171 */
     box-shadow: 3px 3px 3px #002171;
   }
   nav {
-    text-align: left; /*ta:l*/
-    padding-left: 1em; /*pl1em*/
+    text-align: left; /* ta:l */
+    padding-left: 1em; /* pl1em */
   }
-
   @supports (display: grid) {
     nav ul {
       flex-direction: column;
@@ -276,15 +270,15 @@ td:last-of-type {
     footer {
       grid-area: footer;
     }
+    /*makes wrapper grid container*/
     #wrapper {
-      display: grid; /*makes wrapper grid container*/
+      display: grid;
       grid-template:
         "header header"
-        "nav hero" /*row 2*/
+        "nav hero"
         "nav main"
         "nav footer"
-        /180px 1fr;
-    } /*makes header span whole page*/
+        / 180px 1fr;
+    } /*nav takes up three row 2 3 and 4 */
   }
-  /*nav takes up three row 2 3 and 4 */
 }
